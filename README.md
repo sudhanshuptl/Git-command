@@ -47,7 +47,7 @@ network.backpropagation(trainingset, ERROR_LIMIT = 1e-4, learning_rate=0.3, mome
 
 ## Features:
  * Implemented with matrix operation to improve performance.
- * PYPY friendly (requires pypy-numpy).
+
 
 ## Activation functions:
  * tanh
