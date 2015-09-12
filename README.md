@@ -1,63 +1,38 @@
-This Neural Network is implemented for Iris_dataset but you can use it for any dataset by Applying slight changes in main.py 
+#Git Initial
+`git config --global user.name "your Name"`
+`git config --global user.email "your Email"`
+`mkdir Gihub && cd Gihub`
+`git init`
 
-# Neural network written in Python (NumPy)
-This is an implementation of a fully connected neural network in NumPy.
-The network may be batch trained by backpropagation.
-By implementing a batch approach, the NumPy implementation is able to harvest the power of the BLAS library to efficiently perform the required calculations. 
+#Git ssh
+`ssh-keygen -t rsa -C "Your Email"`
+* Enter your folder name where ssh key should created then then open file with .pub extention in folder where ssh key generated, Then copy the code and this key on gihub `"github->setting->ssh key->add ssh key`
 
-*The code has been tested*
+* clone a repo
+`git clone 'repo url `
 
-## Requirements
- * Python
- * NumPy
+* add remote repositery , copy ssh clone url from github
+`git remot add orgion ssh_clone_url`
 
-This script has been written with PYPY in mind. Use their [jit-compiler](http://pypy.org/download.html) to run this code blazingly fast.
+* push repo to Github
+`git push`
 
-## How-to
-To run the code, navigate into the project folder and execute the following command in the terminal:
+#other git command
+* status
+`git status`
 
-`$ python main.py`
+* See difference
+`git diff`
 
-To train the network on a custom dataset, you will have to alter the dataset specified in the `main.py` file. It is quite self-explanatory.
+* add new or modified file for commit
+`git add filename`
+`git add .` 
 
-```Python
-# training set  Instance( [inputs], [targets] )
-trainingset          = [ Instance( [0,0], [0] ), Instance( [0,1], [1] ), Instance( [1,0], [1] ), Instance( [1,1], [0] ) ]
+* Make commit
+`git commit -m "your commit msg"`
 
-n_inputs             = 2 # Number of inputs to the network
-n_outputs            = 1 # Number of outputs in the output layer
-n_hiddens            = 2 # Number of nodes in the hidden layers
-n_hidden_layers      = 1 # Number of hidden layers
+* See log
+`Git log`  
 
-# specify activation functions per layer
-activation_functions = [ tanh_function ]*n_hidden_layers + [ sigmoid_function ]
+ 
 
-# initialize your neural network
-network              = NeuralNet(n_inputs, n_outputs, n_hiddens, n_hidden_layers, activation_functions)
-
-# save the trained network
-network.save_to_file( "trained_configuration.pkl" )
-
-# load a stored network configuration
-# network = NeuralNet.load_from_file( "trained_configuration.pkl" )
-
-# start training
-network.backpropagation(trainingset, ERROR_LIMIT = 1e-4, learning_rate=0.3, momentum_factor=0.9 )
-```
-
-## Features:
- * Implemented with matrix operation to improve performance.
-
-
-## Activation functions:
- * tanh
- * Symmetric Elliot function (fast tanh approximation) 
- * Sigmoid
- * Rectified Linear Unit
- * Linear activation
-
-## Save and load learned weights
-```Python
-network.save_to_file() # store a trained network
-network = NeuralNet.load_from_file() # load a trained network
-```
